@@ -20,3 +20,4 @@ class ApplicationController < ActionController::Base
     redirect_to '/sign_in' unless admin
   end
 end
+# 
