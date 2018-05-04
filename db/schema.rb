@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20180504191453) do
     t.string   "name"
     t.text     "description"
     t.decimal  "price"
-    t.datetime "created_at",                                                                                     null: false
-    t.datetime "updated_at",                                                                                     null: false
-    t.string   "image",       default: "https://cdn-images-1.medium.com/max/1600/1*XO2IAoGqrRTk5McKd3C-oQ.jpeg"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "image",       default: "test"
   end
 
   create_table "users", force: :cascade do |t|
