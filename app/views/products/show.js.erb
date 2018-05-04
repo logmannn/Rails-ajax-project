@@ -1,1 +1,8 @@
-$('#product_description_<%= @product.name %>').html("<p><%= @product.description %></p>")
+
+if ($('#product_description_<%= @product.id %>').hasClass("clicked")){
+  $('#product_description_<%= @product.id %>').removeClass("clicked").addClass("hide");
+} else {
+  $('#product_description_<%= @product.id %>').addClass("clicked").removeClass("hide");
+}
+
+  $('#product_description_<%= @product.id %>').html("<p><%= @product.description %></p>")

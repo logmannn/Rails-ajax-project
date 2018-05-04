@@ -1,8 +1,10 @@
+alert("made it");
 var productId = $(this).attr('id');
-console.log(productId);
+// console.log(productId);
 $(productId).click(
     function(){
         var descriptionId = $(this).attr('id');
         $('#product-description-' + descriptionId).toggleClass('hidden');
-        //console.log('.right-list #' + listId);
-});
+        // console.log('.right-list #' + listId);
+      }
+);
