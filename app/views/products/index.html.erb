@@ -1,31 +1,35 @@
 <h3>Products</h3>
 
-  <div class="section">
-    <%count = 0%>
-    <% @products.each do |product| %>
-      <%count = count+1%>
-      <%if count.to_i==1%>
-        <div class="row">
-      <%end%>
+<div class="section">
+  <%count = 0%>
+  <% @products.each do |product| %>
+    <%count = count+1%>
+    <%if count.to_i==1%>
+      <div class="row">
+    <%end%>
 
-      <div class="col s4">
-        <h4><%= link_to "#{product.name}", product_path(product), id: "#{product.id}", remote: true %></h4>
-        <div id="product_description_<%= product.id %>">
-        </div>
-        <p><%= number_to_currency product.price %></p>
-        <%= form_for @order_item, remote: true do |f| %>
-          <%= f.hidden_field :product_id, value: product.id %>
-          <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!", input_html: { min: 0 } %>
-          <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
-        <% end %>
-        <p><%= link_to "Edit", edit_product_path(product) %></p>
-        <% if current_user && current_user.admin %>
-          <%= link_to "Delete", product_path(product), :data => {:confirm => "You sure?", :method => "delete"} %>
-        <%end%>
+    <div class="col s4">
+      <h4><%= link_to "#{product.name}", product_path(product), id: "#{product.id}", remote: true %></h4>
+      <div id="product_description_<%= product.id %>">
       </div>
-        <%if count.to_i==3%>
-          <%count = 0%>
-          </div>
-        <%end%>
-    <% end %>
-  </div>
+      <p><%= number_to_currency product.price %></p>
+      <%= form_for @order_item, remote: true do |f| %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!", input_html: { min: 0 } %>
+        <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
+      <% end %>
+      <% if current_user && current_user.admin %>
+        <p><%= link_to "Edit", edit_product_path(product) %></p>
+        <%= link_to "Delete", product_path(product), :data => {:confirm => "You sure?", :method => "delete"} %>
+      <%end%>
+    </div>
+      <%if count.to_i==3%>
+        <%count = 0%>
+        </div>
+      <%end%>
+  <% end %>
+</div>
+
+<% if current_user && current_user.admin %>
+  <p><%= link_to "New Product", new_product_path %></p>
+<%end%>
