@@ -18,10 +18,13 @@
         <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!", input_html: { min: 0 } %>
         <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
       <% end %>
+      <% if current_user && current_user.admin %>
+        <%= link_to "Delete", product_path(product), :data => {:confirm => "You sure?", :method => "delete"} %>
+      <%end%>
     </div>
-    <%if count.to_i==3%>
-      <%count = 0%>
-      </div>
-    <%end%>
-  <% end %>
-  </div>
+      <%if count.to_i==3%>
+        <%count = 0%>
+        </div>
+      <%end%>
+    <% end %>
+    </div>
