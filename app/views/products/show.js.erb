@@ -1,8 +1,7 @@
-
 if ($('#product_description_<%= @product.id %>').hasClass("clicked")){
   $('#product_description_<%= @product.id %>').removeClass("clicked").addClass("hide");
 } else {
   $('#product_description_<%= @product.id %>').addClass("clicked").removeClass("hide");
 }
 
-  $('#product_description_<%= @product.id %>').html("<p><%= @product.description %></p>")
+  $('#product_description_<%= @product.id %>').html("<p><%= @product.description %></p><img src='https://cdn-images-1.medium.com/max/1600/1*XO2IAoGqrRTk5McKd3C-oQ.jpeg'>")
