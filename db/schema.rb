@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504191453) do
+ActiveRecord::Schema.define(version: 20180507210441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20180504191453) do
     t.string   "name"
     t.text     "description"
     t.decimal  "price"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.string   "image",       default: "test"
+    t.datetime "created_at",                                                                          null: false
+    t.datetime "updated_at",                                                                          null: false
+    t.string   "image",       default: "https://www.jmark.com/wp-content/uploads/2013/05/clippy.jpg"
   end
 
   create_table "users", force: :cascade do |t|
